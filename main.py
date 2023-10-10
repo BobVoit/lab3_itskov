@@ -3,6 +3,10 @@ from matplotlib import pyplot as plt
 import math
 import numpy as np
 
+# Функция Гаусса (нормальное распределение)
+def gaussian_function(x, sigma, m):
+    return (math.exp(-(((x - m)**2) / (2 * sigma**2)))) / (sigma * math.sqrt(2 * math.pi))
+
 sigma = 2
 m = 0.5
 
@@ -39,6 +43,14 @@ print(intervals)
 print(intervals_values)
 intervals_values = np.array([value / n for value in intervals_values])
 
+# Гистограмма распределения
 plt.title('Гистрограмма распределения')
 plt.plot(intervals, intervals_values)
+plt.show()  
+
+# Функция плотности распределения
+plt.title('Плотность распределения')
+x_density = np.arange(min_value, max_value, 0.1)
+y_density = np.array([gaussian_function(current, sigma, m) for current in x_density])
+plt.plot(x_density, y_density)
 plt.show()

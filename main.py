@@ -42,10 +42,11 @@ for value in y:
 print(intervals)
 print(intervals_values)
 intervals_values = np.array([value / n for value in intervals_values])
+print(intervals_values)
 
 # Гистограмма распределения
 plt.title('Гистрограмма распределения')
-plt.plot(intervals, intervals_values)
+plt.bar(intervals, intervals_values)
 plt.show()  
 
 # Функция плотности распределения
